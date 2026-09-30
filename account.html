@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اکانت من - DrAgOn GaMe</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:
+        radial-gradient(circle at top,#18283b 0%,#111722 45%,#090d13 100%);
+    color:white;
+    font-family:Arial,sans-serif;
+    min-height:100vh;
+}
+
+/* NAV */
+
+nav{
+    background:rgba(24,30,43,.97);
+    padding:17px 8px;
+    text-align:center;
+    border-bottom:2px solid #00ff66;
+    box-shadow:0 4px 25px rgba(0,255,102,.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(10px);
+}
+
+nav a{
+    color:#dce2eb;
+    text-decoration:none;
+    margin:5px 7px;
+    font-size:14px;
+    display:inline-block;
+    transition:.25s;
+}
+
+nav a:hover{
+    color:#00ff66;
+}
+
+/* CONTAINER */
+
+.container{
+    width:92%;
+    max-width:720px;
+    margin:35px auto 60px;
+}
+
+/* TITLE */
+
+.title-box{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title{
+    font-size:30px;
+    font-weight:bold;
+}
+
+.subtitle{
+    color:#7f8a9d;
+    font-size:13px;
+    margin-top:9px;
+}
+
+/* PROFILE */
+
+.profile{
+    background:linear-gradient(
+        145deg,
+        rgba(27,35,50,.98),
+        rgba(17,23,34,.98)
+    );
+
+    border:1px solid #293344;
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+    text-align:center;
+}
+
+/* AVATAR */
+
+.avatar{
+    width:90px;
+    height:90px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#00ff66;
+    color:#07150b;
+
+    font-size:38px;
+    font-weight:bold;
+
+    box-shadow:
+        0 0 20px rgba(0,255,102,.35);
+}
+
+.username{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.status{
+    margin-top:8px;
+    color:#00ff66;
+    font-size:13px;
+}
+
+/* INFO */
+
+.info{
+    margin-top:25px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+}
+
+.info-box{
+    background:#202838;
+    border:1px solid #2d384b;
+
+    border-radius:13px;
+
+    padding:17px;
+
+    transition:.25s;
+}
+
+.info-box:hover{
+    border-color:#00ff66;
+    transform:translateY(-2px);
+}
+
+.info-title{
+    color:#7f8a9d;
+    font-size:12px;
+    margin-bottom:8px;
+}
+
+.info-value{
+    color:#00ff66;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* ACCOUNT SECTION */
+
+.section{
+    margin-top:18px;
+
+    background:#1a2130;
+
+    border:1px solid #293344;
+
+    border-radius:17px;
+
+    padding:20px;
+}
+
+.section-title{
+    font-size:18px;
+    font-weight:bold;
+
+    padding-bottom:13px;
+
+    border-bottom:1px solid #30394a;
+
+    margin-bottom:13px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:13px 0;
+
+    border-bottom:1px solid #252e3d;
+}
+
+.row:last-child{
+    border-bottom:none;
+}
+
+.label{
+    color:#8b95a6;
+}
+
+.value{
+    color:#e9edf3;
+    font-weight:bold;
+}
+
+/* BUTTON */
+
+.logout{
+    width:100%;
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border:none;
+    border-radius:11px;
+
+    background:#00ff66;
+    color:#06150b;
+
+    font-size:15px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.logout:hover{
+    background:#00d957;
+    transform:translateY(-2px);
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    color:#555f70;
+    font-size:12px;
+    margin-top:35px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .container{
+        width:94%;
+        margin-top:25px;
+    }
+
+    nav{
+        padding:14px 5px;
+    }
+
+    nav a{
+        font-size:13px;
+        margin:4px 5px;
+    }
+
+    .title{
+        font-size:26px;
+    }
+
+    .profile{
+        padding:20px 15px;
+    }
+
+    .info{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAV -->
+
+<nav>
+
+<a href="index.html">خانه</a>
+
+<a href="account.html">اکانت من</a>
+
+<a href="players.html">بازیکنان</a>
+
+<a href="shop.html">فروشگاه</a>
+
+<a href="login.html">ورود</a>
+
+<a href="register.html">ثبت‌نام</a>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- TITLE -->
+
+<div class="title-box">
+
+<div class="title">
+👤 اکانت من
+</div>
+
+<div class="subtitle">
+مدیریت پروفایل DrAgOn GaMe
+</div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="profile">
+
+
+<div class="avatar">
+D
+</div>
+
+
+<div class="username">
+DrAgOn
+</div>
+
+
+<div class="status">
+🟢 آنلاین
+</div>
+
+
+<!-- MAIN INFO -->
+
+<div class="info">
+
+
+<div class="info-box">
+
+<div class="info-title">
+Level
+</div>
+
+<div class="info-value">
+1000
+</div>
+
+</div>
+
+
+<div class="info-box">
+
+<div class="info-title">
+فکشن
+</div>
+
+<div class="info-value">
+سازنده
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- ACCOUNT INFO -->
+
+<div class="section">
+
+<div class="section-title">
+📋 اطلاعات حساب
+</div>
+
+
+<div class="row">
+
+<span class="label">
+نام کاربری
+</span>
+
+<span class="value">
+DrAgOn
+</span>
+
+</div>
+
+
+<div class="row">
+
+<span class="label">
+وضعیت
+</span>
+
+<span class="value">
+آنلاین
+</span>
+
+</div>
+
+
+<div class="row">
+
+<span class="label">
+سرور
+</span>
+
+<span class="value">
+DrAgOn GaMe
+</span>
+
+</div>
+
+
+</div>
+
+
+<button class="logout" onclick="logout()">
+خروج از حساب
+</button>
+
+
+</div>
+
+
+<div class="footer">
+🐉 DrAgOn GaMe © تمامی حقوق محفوظ است
+</div>
+
+
+</div>
+
+
+<script>
+
+function logout(){
+
+    alert("سیستم ورود واقعی هنوز فعال نشده است.");
+
+}
+
+</script>
+
+
+</body>
+
+  </html>
