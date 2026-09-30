@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>اتصال به سرور | DrAgOn GaMe</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at top, #12352a 0%, #0b1118 45%, #070b10 100%);
+    color: white;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(10, 15, 20, 0.92);
+    backdrop-filter: blur(10px);
+    padding: 16px 10px;
+    text-align: center;
+    border-bottom: 1px solid #00ff66;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin: 0 7px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #00ff66;
+}
+
+.container {
+    width: 92%;
+    max-width: 700px;
+    margin: 45px auto;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: bold;
+    color: #00ff66;
+    text-shadow: 0 0 20px rgba(0,255,102,.35);
+}
+
+.hero p {
+    color: #aaa;
+}
+
+.card {
+    background: rgba(20, 27, 34, .9);
+    border: 1px solid rgba(0,255,102,.15);
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.35);
+}
+
+.status {
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(0,255,102,.08);
+    color: #00ff66;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5px;
+    border-bottom: 1px solid #29323a;
+}
+
+.info:last-child {
+    border-bottom: none;
+}
+
+.label {
+    color: #999;
+}
+
+.value {
+    color: white;
+    font-weight: bold;
+}
+
+.green {
+    color: #00ff66;
+}
+
+.connect {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #00ff66;
+    color: #061009;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: .2s;
+}
+
+.connect:hover {
+    transform: translateY(-2px);
+    background: #19ff78;
+}
+
+.note {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+    padding: 25px;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">خانه</a>
+    <a href="account.html">اکانت من</a>
+    <a href="players.html">بازیکنان آنلاین</a>
+    <a href="shop.html">فروشگاه</a>
+    <a href="login.html">ورود</a>
+    <a href="login.html">ثبت‌نام</a>
+</nav>
+
+<div class="container">
+
+    <div class="hero">
+        <div class="logo">🐉 DrAgOn GaMe</div>
+        <p>اتصال به سرور GTA San Andreas</p>
+    </div>
+
+    <div class="card">
+
+        <div class="status">
+            🟢 سرور آنلاین
+        </div>
+
+        <div class="info">
+            <span class="label">نام سرور</span>
+            <span class="value">DrAgOn GaMe</span>
+        </div>
+
+        <div class="info">
+            <span class="label">وضعیت</span>
+            <span class="value green">Online</span>
+        </div>
+
+        <div class="info">
+            <span class="label">بازیکنان آنلاین</span>
+            <span class="value">1</span>
+        </div>
+
+        <div class="info">
+            <span class="label">نسخه</span>
+            <span class="value">SA-MP</span>
+        </div>
+
+        <div class="info">
+            <span class="label">IP سرور</span>
+            <span class="value">در حال آماده‌سازی</span>
+        </div>
+
+        <div class="info">
+            <span class="label">Port</span>
+            <span class="value">در حال آماده‌سازی</span>
+        </div>
+
+        <a class="connect" href="GAME-LINK">
+            🎮 دانلود و ورود به بازی
+        </a>
+
+        <div class="note">
+            اطلاعات IP، پورت و تعداد بازیکنان پس از راه‌اندازی سرور واقعی به‌روزرسانی می‌شوند.
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 DrAgOn GaMe — GTA San Andreas Multiplayer
+</footer>
+
+</body>
+</html>
