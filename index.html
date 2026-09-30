@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DrAgOn GaMe | GTA San Andreas</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    color:white;
+
+    background:
+        radial-gradient(circle at 50% -10%,#16472d 0%,#101722 35%,#080c12 75%);
+
+    min-height:100vh;
+}
+
+
+/* NAV */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+
+    gap:6px;
+
+    padding:15px 8px;
+
+    background:rgba(10,15,22,.92);
+
+    border-bottom:1px solid rgba(0,255,102,.35);
+
+    box-shadow:0 5px 30px rgba(0,0,0,.35);
+
+    backdrop-filter:blur(12px);
+}
+
+nav a{
+    color:#dce4ee;
+
+    text-decoration:none;
+
+    padding:9px 12px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    transition:.25s;
+}
+
+nav a:hover{
+    color:#00ff66;
+
+    background:rgba(0,255,102,.07);
+}
+
+
+/* HERO */
+
+.hero{
+    text-align:center;
+
+    padding:80px 20px 45px;
+}
+
+.logo{
+    font-size:46px;
+
+    font-weight:bold;
+
+    color:#00ff66;
+
+    text-shadow:
+        0 0 15px rgba(0,255,102,.35),
+        0 0 35px rgba(0,255,102,.12);
+}
+
+.hero h1{
+    margin:15px 0 8px;
+
+    font-size:25px;
+}
+
+.hero p{
+    color:#8994a5;
+
+    margin:0;
+}
+
+
+/* BUTTONS */
+
+.hero-buttons{
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+
+    padding:13px 25px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    transition:.25s;
+}
+
+.primary{
+    background:#00ff66;
+
+    color:#06150b;
+
+    box-shadow:0 0 20px rgba(0,255,102,.12);
+}
+
+.primary:hover{
+    background:#00d957;
+
+    transform:translateY(-2px);
+}
+
+.secondary{
+    background:#1a2230;
+
+    color:#dce4ee;
+
+    border:1px solid #303b4e;
+}
+
+.secondary:hover{
+    border-color:#00ff66;
+
+    color:#00ff66;
+}
+
+
+/* CONTAINER */
+
+.container{
+    width:92%;
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+
+/* STATUS */
+
+.status{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:14px;
+
+    margin:20px 0 25px;
+}
+
+.status-card{
+    background:rgba(23,31,44,.9);
+
+    border:1px solid #293548;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+    transition:.25s;
+}
+
+.status-card:hover{
+    transform:translateY(-3px);
+
+    border-color:#00ff66;
+}
+
+.status-icon{
+    font-size:25px;
+
+    margin-bottom:8px;
+}
+
+.status-title{
+    color:#788598;
+
+    font-size:12px;
+
+    margin-bottom:7px;
+}
+
+.status-value{
+    color:#00ff66;
+
+    font-size:17px;
+
+    font-weight:bold;
+}
+
+
+/* BOX */
+
+.box{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25,34,48,.96),
+            rgba(14,20,29,.96)
+        );
+
+    border:1px solid #293548;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.box h2{
+    margin-top:0;
+
+    font-size:21px;
+}
+
+.box p{
+    color:#b9c2ce;
+
+    line-height:2;
+}
+
+
+/* FEATURES */
+
+.features{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:18px;
+}
+
+.feature{
+    background:#202a3a;
+
+    padding:17px;
+
+    border-radius:12px;
+
+    border:1px solid #2d394c;
+
+    transition:.25s;
+}
+
+.feature:hover{
+    border-color:#00ff66;
+
+    transform:translateY(-2px);
+}
+
+.feature-title{
+    font-weight:bold;
+
+    margin-bottom:7px;
+}
+
+.feature-text{
+    color:#7f8a9d;
+
+    font-size:13px;
+}
+
+
+/* SAMPLE */
+
+.sample{
+    color:#667386 !important;
+
+    font-size:12px;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+
+    color:#596578;
+
+    font-size:12px;
+
+    padding:25px 10px 35px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .logo{
+        font-size:35px;
+    }
+
+    .hero{
+        padding-top:55px;
+    }
+
+    .status{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    nav a{
+        font-size:13px;
+
+        padding:8px 9px;
+    }
+
+    .box{
+        padding:20px 17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAV -->
+
+<nav>
+
+<a href="index.html">خانه</a>
+
+<a href="account.html">اکانت من</a>
+
+<a href="players.html">بازیکنان آنلاین</a>
+
+<a href="shop.html">فروشگاه</a>
+
+<a href="login.html">ورود</a>
+
+<a href="login.html">ثبت‌نام</a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="logo">
+🐉 DrAgOn GaMe
+</div>
+
+<h1>
+GTA San Andreas Multiplayer
+</h1>
+
+<p>
+به دنیای DrAgOn GaMe خوش آمدید
+</p>
+
+
+<div class="hero-buttons">
+
+<a class="btn primary" href="players.html">
+👥 بازیکنان آنلاین
+</a>
+
+<a class="btn secondary" href="login.html">
+🔐 ورود به حساب
+</a>
+
+</div>
+
+</section>
+
+
+<div class="container">
+
+
+<!-- STATUS -->
+
+<div class="status">
+
+
+<div class="status-card">
+
+<div class="status-icon">
+🟢
+</div>
+
+<div class="status-title">
+وضعیت سرور
+</div>
+
+<div class="status-value">
+آنلاین
+</div>
+
+</div>
+
+
+<div class="status-card">
+
+<div class="status-icon">
+👥
+</div>
+
+<div class="status-title">
+بازیکنان آنلاین
+</div>
+
+<div class="status-value">
+۱ نفر
+</div>
+
+</div>
+
+
+<div class="status-card">
+
+<div class="status-icon">
+🎮
+</div>
+
+<div class="status-title">
+نسخه
+</div>
+
+<div class="status-value">
+SA-MP
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- WELCOME -->
+
+<div class="box">
+
+<h2>
+🔥 درباره DrAgOn GaMe
+</h2>
+
+<p>
+DrAgOn GaMe یک پروژه GTA San Andreas Multiplayer
+است که با هدف ساخت یک تجربه متفاوت، جذاب و رقابتی
+برای بازیکنان در حال توسعه است.
+</p>
+
+<div class="features">
+
+
+<div class="feature">
+
+<div class="feature-title">
+🚗 دنیای آزاد
+</div>
+
+<div class="feature-text">
+تجربه یک دنیای بزرگ و آزاد در سن آندریاس.
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-title">
+👑 سیستم Level
+</div>
+
+<div class="feature-text">
+پیشرفت شخصیت و افزایش Level در سرور.
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-title">
+🏠 خانه و کسب‌وکار
+</div>
+
+<div class="feature-text">
+امکانات مختلف برای پیشرفت در دنیای بازی.
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-title">
+⚔️ فکشن‌ها
+</div>
+
+<div class="feature-text">
+حضور در فکشن‌ها و فعالیت‌های مختلف.
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- SERVER -->
+
+<div class="box">
+
+<h2>
+⚡ وضعیت فعلی سرور
+</h2>
+
+<p class="online">
+🟢 سرور آنلاین
+</p>
+
+<p>
+👥 بازیکنان آنلاین: ۱
+</p>
+
+<p class="sample">
+اطلاعات این بخش فعلاً نمونه است و پس از آماده شدن
+سرور به اطلاعات واقعی متصل خواهد شد.
+</p>
+
+</div>
+
+
+<!-- DOWNLOAD -->
+
+<div class="box">
+
+<h2>
+🎮 آماده ورود به DrAgOn GaMe هستی؟
+</h2>
+
+<p>
+پس از آماده شدن سرور، لینک دانلود و اتصال به بازی
+در این بخش قرار می‌گیرد.
+</p>
+
+<a class="btn primary" href="GAME-LINK">
+⬇️ دانلود بازی
+</a>
+
+<p class="sample">
+لینک دانلود فعلاً نمونه است.
+</p>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+🐉 DrAgOn GaMe © تمامی حقوق محفوظ است
+
+</footer>
+
+
+</body>
+
+  </html>
