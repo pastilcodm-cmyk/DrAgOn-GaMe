@@ -1,62 +1,299 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>فروشگاه | DrAgOn GaMe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Tahoma, Arial, sans-serif;
+<title>فروشگاه | DrAgOn GaMe</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #fff;
+    background:
+        radial-gradient(circle at top, #123d2b 0%, #0b1518 35%, #060a0e 100%);
+    min-height: 100vh;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 16px 10px;
+    text-align: center;
+    background: rgba(7, 12, 16, 0.94);
+    border-bottom: 1px solid rgba(0,255,102,.35);
+    backdrop-filter: blur(12px);
+}
+
+nav a {
+    display: inline-block;
+    color: #ddd;
+    text-decoration: none;
+    margin: 5px 7px;
+    font-size: 14px;
+    transition: .2s;
+}
+
+nav a:hover {
+    color: #00ff66;
+}
+
+.container {
+    width: 94%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.logo {
+    font-size: 42px;
+    font-weight: bold;
+    color: #00ff66;
+    text-shadow: 0 0 25px rgba(0,255,102,.35);
+}
+
+.header h1 {
+    margin: 12px 0 8px;
+}
+
+.header p {
+    color: #999;
+}
+
+.notice {
+    background: rgba(0,255,102,.07);
+    border: 1px solid rgba(0,255,102,.2);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product {
+    position: relative;
+    overflow: hidden;
+    background: rgba(18, 25, 31, .94);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 20px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,.35);
+    transition: .25s;
+}
+
+.product:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,255,102,.5);
+    box-shadow: 0 15px 45px rgba(0,255,102,.12);
+}
+
+.gold-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    background: radial-gradient(circle, #ffe36b, #b87900);
+    box-shadow: 0 0 25px rgba(255,196,0,.25);
+}
+
+.product h2 {
+    margin: 10px 0;
+    font-size: 23px;
+}
+
+.amount {
+    color: #ffd83d;
+    font-size: 19px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.price {
+    font-size: 20px;
+    color: #00ff66;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.buy {
+    display: block;
+    text-decoration: none;
+    color: #061009;
+    background: #00ff66;
+    padding: 13px;
+    border-radius: 11px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.buy:hover {
+    background: #19ff78;
+    transform: scale(1.02);
+}
+
+.bottom-note {
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    color: #888;
+    background: rgba(0,0,0,.2);
+    border-radius: 15px;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+    padding: 25px 10px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+    .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .logo {
+        font-size: 32px;
     }
 
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at top, #0b5d35 0%, #06351f 35%, #02170d 100%);
-      color: white;
-      overflow-x: hidden;
+    .shop-grid {
+        grid-template-columns: 1fr;
     }
 
-    .header {
-      text-align: center;
-      padding: 45px 20px 25px;
+    .container {
+        width: 92%;
+        padding-top: 30px;
     }
 
-    .header h1 {
-      font-size: 42px;
-      color: #35ff91;
-      text-shadow: 0 0 20px rgba(53,255,145,.7);
-      margin-bottom: 12px;
+    nav a {
+        font-size: 13px;
+        margin: 4px;
     }
+}
+</style>
+</head>
 
-    .header p {
-      color: #b8ffd5;
-      font-size: 16px;
-    }
+<body>
 
-    .store {
-      width: 92%;
-      max-width: 1100px;
-      margin: 25px auto 60px;
+<nav>
+    <a href="index.html">خانه</a>
+    <a href="account.html">اکانت من</a>
+    <a href="players.html">بازیکنان آنلاین</a>
+    <a href="server.html">اتصال به سرور</a>
+    <a href="shop.html">فروشگاه</a>
+    <a href="login.html">ورود</a>
+    <a href="login.html">ثبت‌نام</a>
+</nav>
 
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 22px;
-    }
+<div class="container">
 
-    .card {
-      position: relative;
-      padding: 28px 20px;
-      text-align: center;
+    <div class="header">
+        <div class="logo">🐉 DrAgOn GaMe</div>
+        <h1>🛒 فروشگاه</h1>
+        <p>خرید گلد برای استفاده در سرور DrAgOn GaMe</p>
+    </div>
 
-      background: rgba(3, 35, 20, .78);
-      border: 1px solid rgba(53,255,145,.35);
-      border-radius: 22px;
+    <div class="notice">
+        💰 بسته گلد موردنظر خود را انتخاب کنید.
+        <br>
+        پرداخت و تحویل گلد پس از راه‌اندازی سیستم فروش واقعی فعال خواهد شد.
+    </div>
 
-      box-shadow:
-        0 15px 35px rgba(0,0,0,.45),
-        inset 0 0 25px rgba(53
+    <div class="shop-grid">
+
+        <div class="product">
+            <div class="gold-icon">💰</div>
+            <h2>۲۰۰ گلد</h2>
+            <div class="amount">200 GOLD</div>
+            <div class="price">۵٬۰۰۰ تومان</div>
+            <a href="#" class="buy">🛒 خرید</a>
+        </div>
+
+        <div class="product">
+            <div class="gold-icon">💰</div>
+            <h2>۱٬۰۰۰ گلد</h2>
+            <div class="amount">1,000 GOLD</div>
+            <div class="price">۱۵٬۰۰۰ تومان</div>
+            <a href="#" class="buy">🛒 خرید</a>
+        </div>
+
+        <div class="product">
+            <div class="gold-icon">💰</div>
+            <h2>۳٬۰۰۰ گلد</h2>
+            <div class="amount">3,000 GOLD</div>
+            <div class="price">۳۰٬۰۰۰ تومان</div>
+            <a href="#" class="buy">🛒 خرید</a>
+        </div>
+
+        <div class="product">
+            <div class="gold-icon">💰</div>
+            <h2>۵٬۰۰۰ گلد</h2>
+            <div class="amount">5,000 GOLD</div>
+            <div class="price">۵۰٬۰۰۰ تومان</div>
+            <a href="#" class="buy">🛒 خرید</a>
+        </div>
+
+        <div class="product">
+            <div class="gold-icon">💰</div>
+            <h2>۱۰۰٬۰۰۰ گلد</h2>
+            <div class="amount">100,000 GOLD</div>
+            <div class="price">۹۰٬۰۰۰ تومان</div>
+            <a href="#" class="buy">🛒 خرید</a>
+        </div>
+
+        <div class="product">
+            <div class="gold-icon">💰</div>
+            <h2>۱۵۰٬۰۰۰ گلد</h2>
+            <div class="amount">150,000 GOLD</div>
+            <div class="price">۱۷۰٬۰۰۰ تومان</div>
+            <a href="#" class="buy">🛒 خرید</a>
+        </div>
+
+        <div class="product">
+            <div class="gold-icon">💰</div>
+            <h2>۳۰۰٬۰۰۰ گلد</h2>
+            <div class="amount">300,000 GOLD</div>
+            <div class="price">۲۵۰٬۰۰۰ تومان</div>
+            <a href="#" class="buy">🛒 خرید</a>
+        </div>
+
+    </div>
+
+    <div class="bottom-note">
+        ⚡ فروشگاه در حال آماده‌سازی است.
+        <br>
+        دکمه‌های خرید پس از راه‌اندازی سیستم پرداخت واقعی فعال می‌شوند.
+    </div>
+
+</div>
+
+<footer>
+    © 2026 DrAgOn GaMe — GTA San Andreas Multiplayer
+</footer>
+
+</body>
+                                      </html>
