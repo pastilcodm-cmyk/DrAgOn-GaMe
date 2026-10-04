@@ -448,13 +448,13 @@ DrAgOn GaMe
 
 
 <script>
+function logout() {
+    localStorage.removeItem("dragonGameLoggedIn");
+    localStorage.removeItem("dragonGameUsername");
+    localStorage.removeItem("dragonGameEmail");
 
-function logout(){
-
-    alert("سیستم ورود واقعی هنوز فعال نشده است.");
-
+    window.location.href = "login.html";
 }
-
 </script>
 
 <script>
