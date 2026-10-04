@@ -278,15 +278,23 @@ function updateNavigation(){
 
     if(loggedIn){
 
-        accountLink.style.display = "inline-block";
+        if(accountLink){
+            accountLink.style.display = "inline-block";
+        }
 
-        loginLink.style.display = "none";
+        if(loginLink){
+            loginLink.style.display = "none";
+        }
 
     }else{
 
-        accountLink.style.display = "none";
+        if(accountLink){
+            accountLink.style.display = "none";
+        }
 
-        loginLink.style.display = "inline-block";
+        if(loginLink){
+            loginLink.style.display = "inline-block";
+        }
 
     }
 
@@ -358,24 +366,7 @@ function login(){
 updateNavigation();
 
 </script>
-<script>
-function updateNavigation() {
-    const loggedIn = localStorage.getItem("dragonGameLoggedIn") === "true";
 
-    const accountLink = document.getElementById("accountLink");
-    const loginLink = document.getElementById("loginLink");
-
-    if (loggedIn) {
-        if (accountLink) accountLink.style.display = "inline-block";
-        if (loginLink) loginLink.style.display = "none";
-    } else {
-        if (accountLink) accountLink.style.display = "none";
-        if (loginLink) loginLink.style.display = "inline-block";
-    }
-}
-
-updateNavigation();
-</script>
 </body>
 
-</html>
+    </html>
