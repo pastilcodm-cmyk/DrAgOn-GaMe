@@ -1,1 +1,644 @@
+/* ==============================
+   DrAgOn GaMe - Main Style
+   ============================== */
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Tahoma, sans-serif;
+    direction: rtl;
+    color: #fff;
+    background:
+        radial-gradient(circle at top right, rgba(0, 255, 102, 0.12), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(0, 180, 80, 0.08), transparent 35%),
+        #050805;
+    overflow-x: hidden;
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050805;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00ff66;
+    border-radius: 20px;
+}
+
+/* ---------- Links ---------- */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------- Main Container ---------- */
+
+.container {
+    width: min(1100px, calc(100% - 28px));
+    margin: 0 auto;
+    padding: 110px 0 40px;
+}
+
+/* ---------- Floating Navigation ---------- */
+
+.main-nav {
+    position: fixed;
+    z-index: 9999;
+
+    top: 18px;
+    right: 18px;
+
+    width: min(650px, calc(100vw - 36px));
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 8px;
+
+    background: rgba(5, 12, 7, 0.88);
+    border: 1px solid rgba(0, 255, 102, 0.35);
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.55),
+        0 0 25px rgba(0, 255, 102, 0.08);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.main-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-logo {
+    flex: 0 0 auto;
+
+    padding: 10px 13px;
+
+    font-size: 15px;
+    font-weight: 900;
+    color: #00ff66;
+
+    white-space: nowrap;
+}
+
+.main-nav a {
+    flex: 0 0 auto;
+
+    padding: 10px 12px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #d9e9de;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: #fff;
+    background: rgba(0, 255, 102, 0.12);
+    transform: translateY(-1px);
+}
+
+.main-nav a.active {
+    color: #001b0b;
+    background: #00ff66;
+    box-shadow: 0 0 18px rgba(0, 255, 102, 0.25);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    position: relative;
+
+    padding: 55px 25px;
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 255, 102, 0.10),
+            rgba(0, 0, 0, 0.15)
+        );
+
+    border: 1px solid rgba(0, 255, 102, 0.22);
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    width: 250px;
+    height: 250px;
+
+    top: -130px;
+    right: -100px;
+
+    background: rgba(0, 255, 102, 0.12);
+
+    border-radius: 50%;
+    filter: blur(40px);
+}
+
+.hero h1 {
+    position: relative;
+
+    font-size: clamp(32px, 8vw, 64px);
+    font-weight: 900;
+
+    color: #00ff66;
+
+    text-shadow:
+        0 0 15px rgba(0, 255, 102, 0.25);
+}
+
+.hero p {
+    position: relative;
+
+    margin-top: 12px;
+
+    color: #b8c9bd;
+    font-size: 16px;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 11px 18px;
+
+    border: 1px solid rgba(0, 255, 102, 0.35);
+    border-radius: 13px;
+
+    color: #fff;
+    background: rgba(0, 255, 102, 0.08);
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+
+    background: rgba(0, 255, 102, 0.16);
+
+    box-shadow:
+        0 8px 25px rgba(0, 255, 102, 0.12);
+}
+
+.btn-primary {
+    color: #001b0b;
+    background: #00ff66;
+    border-color: #00ff66;
+}
+
+.btn-primary:hover {
+    background: #20ff7a;
+}
+
+/* ---------- Grid ---------- */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+    padding: 20px;
+
+    background: rgba(10, 18, 12, 0.82);
+
+    border: 1px solid rgba(0, 255, 102, 0.16);
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(0, 255, 102, 0.35);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.card h2,
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #aebdb3;
+    line-height: 1.8;
+}
+
+/* ---------- Section ---------- */
+
+.section {
+    margin-top: 25px;
+}
+
+.section-title {
+    margin-bottom: 15px;
+
+    font-size: 23px;
+    font-weight: 900;
+
+    color: #fff;
+}
+
+.section-title::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+    height: 22px;
+
+    margin-left: 9px;
+
+    vertical-align: -3px;
+
+    background: #00ff66;
+    border-radius: 5px;
+}
+
+/* ---------- Status ---------- */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 7px 11px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.status.online {
+    color: #00ff66;
+    background: rgba(0, 255, 102, 0.10);
+}
+
+.status.offline {
+    color: #ff5c5c;
+    background: rgba(255, 92, 92, 0.10);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    background: currentColor;
+
+    box-shadow: 0 0 10px currentColor;
+}
+
+/* ---------- Server Stats ---------- */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat {
+    padding: 18px;
+
+    text-align: center;
+
+    background: rgba(10, 18, 12, 0.8);
+
+    border: 1px solid rgba(0, 255, 102, 0.15);
+    border-radius: 18px;
+}
+
+.stat-value {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #00ff66;
+
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.stat-label {
+    color: #98a99e;
+    font-size: 13px;
+}
+
+/* ---------- Forms ---------- */
+
+.form {
+    display: grid;
+    gap: 13px;
+}
+
+.input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    color: #fff;
+    background: rgba(0, 0, 0, 0.35);
+
+    border: 1px solid rgba(0, 255, 102, 0.18);
+    border-radius: 13px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.input:focus,
+select:focus,
+textarea:focus {
+    border-color: #00ff66;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 255, 102, 0.08);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* ---------- Player ---------- */
+
+.player-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 15px;
+
+    background: rgba(10, 18, 12, 0.82);
+
+    border: 1px solid rgba(0, 255, 102, 0.15);
+    border-radius: 17px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 48px;
+
+    color: #001b0b;
+    background: #00ff66;
+
+    border-radius: 14px;
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.player-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.player-name {
+    font-weight: 900;
+}
+
+.player-meta {
+    margin-top: 4px;
+
+    color: #8fa095;
+    font-size: 12px;
+}
+
+/* ---------- Shop ---------- */
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.product {
+    position: relative;
+
+    padding: 22px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 255, 102, 0.09),
+            rgba(10, 18, 12, 0.9)
+        );
+
+    border: 1px solid rgba(0, 255, 102, 0.18);
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 255, 102, 0.4);
+}
+
+.product-icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.product h3 {
+    margin-bottom: 8px;
+}
+
+.price {
+    margin: 12px 0;
+
+    color: #00ff66;
+
+    font-size: 21px;
+    font-weight: 900;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    padding: 30px 15px 40px;
+
+    text-align: center;
+
+    color: #718078;
+    font-size: 13px;
+}
+
+/* ---------- Utility ---------- */
+
+.text-green {
+    color: #00ff66;
+}
+
+.muted {
+    color: #8fa095;
+}
+
+.center {
+    text-align: center;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 20px;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 800px) {
+
+    .main-nav {
+        top: 10px;
+        right: 10px;
+
+        width: calc(100vw - 20px);
+
+        border-radius: 16px;
+    }
+
+    .container {
+        width: min(100% - 20px, 700px);
+        padding-top: 90px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        padding: 40px 18px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .main-nav {
+        gap: 3px;
+        padding: 6px;
+    }
+
+    .nav-logo {
+        padding: 9px 8px;
+        font-size: 13px;
+    }
+
+    .main-nav a {
+        padding: 9px 9px;
+        font-size: 12px;
+    }
+
+    .container {
+        padding-top: 82px;
+    }
+
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+  }
