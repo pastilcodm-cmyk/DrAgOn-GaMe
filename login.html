@@ -2,363 +2,147 @@
 <html lang="fa" dir="rtl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ورود - DrAgOn GaMe</title>
+    <meta charset="UTF-8">
 
-<style>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-*{
-    box-sizing:border-box;
-}
+    <title>ورود | DrAgOn GaMe</title>
 
-body{
-    margin:0;
-    min-height:100vh;
-    background:
-        radial-gradient(circle at top,#18283b 0%,#111722 45%,#090d13 100%);
-    color:white;
-    font-family:Arial,sans-serif;
-}
-
-nav{
-    position:fixed;
-    top:20px;
-    right:20px;
-    z-index:9999;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:5px;
-
-    padding:10px;
-
-    background:rgba(24,30,43,.92);
-    border:1px solid rgba(0,255,102,.3);
-    border-radius:16px;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.4);
-
-    backdrop-filter:blur(12px);
-
-    cursor:grab;
-
-    user-select:none;
-    touch-action:none;
-}
-
-nav:active{
-    cursor:grabbing;
-}
-
-nav a{
-    color:#dce2eb;
-    text-decoration:none;
-
-    padding:9px 12px;
-    border-radius:8px;
-
-    font-size:14px;
-
-    transition:.2s;
-}
-
-nav a:hover{
-    color:#00ff66;
-    background:rgba(0,255,102,.08);
-}
-
-nav a{
-    color:#dce2eb;
-    text-decoration:none;
-    margin:5px 7px;
-    font-size:14px;
-    display:inline-block;
-    transition:.25s;
-}
-
-nav a:hover{
-    color:#00ff66;
-}
-
-.container{
-    width:92%;
-    max-width:500px;
-    margin:40px auto 60px;
-}
-
-.title{
-    text-align:center;
-    font-size:30px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.subtitle{
-    text-align:center;
-    color:#7f8a9d;
-    font-size:13px;
-    margin-bottom:25px;
-}
-
-.box{
-    background:linear-gradient(
-        145deg,
-        rgba(27,35,50,.98),
-        rgba(17,23,34,.98)
-    );
-
-    border:1px solid #293344;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 15px 40px rgba(0,0,0,.35);
-}
-
-label{
-    display:block;
-    color:#aab3c1;
-    font-size:13px;
-    margin-bottom:7px;
-}
-
-input{
-    width:100%;
-    padding:14px;
-    margin-bottom:16px;
-    border-radius:10px;
-    border:1px solid #303b4e;
-    background:#111722;
-    color:white;
-    outline:none;
-    font-size:14px;
-}
-
-input:focus{
-    border-color:#00ff66;
-    box-shadow:0 0 10px rgba(0,255,102,.08);
-}
-
-.main-btn{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:11px;
-    background:#00ff66;
-    color:#06150b;
-    font-size:15px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.main-btn:hover{
-    background:#00d957;
-    transform:translateY(-2px);
-}
-
-.message{
-    display:none;
-    margin-top:15px;
-    padding:12px;
-    border-radius:9px;
-    text-align:center;
-    background:rgba(0,255,102,.07);
-    color:#00ff66;
-    font-size:13px;
-}
-
-.footer{
-    text-align:center;
-    color:#555f70;
-    font-size:12px;
-    margin-top:30px;
-}
-
-@media(max-width:600px){
-
-    nav{
-        padding:14px 5px;
-    }
-
-    nav a{
-        font-size:13px;
-        margin:4px 5px;
-    }
-
-    .container{
-        width:94%;
-        margin-top:25px;
-    }
-
-    .title{
-        font-size:26px;
-    }
-
-    .box{
-        padding:20px 16px;
-    }
-
-}
-
-</style>
+    <link rel="stylesheet" href="assets/style.css">
 
 </head>
 
 <body>
 
-<nav>
+<nav class="main-nav">
 
-<a href="index.html">خانه</a>
+    <a href="index.html">🏠 خانه</a>
 
-<a href="account.html" id="accountLink" style="display:none;">
-اکانت من
-</a>
+    <a href="account.html"
+       id="accountLink"
+       style="display:none;">
+        👤 اکانت من
+    </a>
 
-<a href="players.html">بازیکنان آنلاین</a>
+    <a href="players.html">
+        👥 بازیکنان آنلاین
+    </a>
 
-<a href="server.html">اتصال به سرور</a>
+    <a href="server.html">
+        🎮 اتصال به سرور
+    </a>
 
-<a href="shop.html">فروشگاه</a>
+    <a href="shop.html">
+        🛒 فروشگاه
+    </a>
 
-<a href="login.html" id="loginLink">
-ورود
-</a>
+    <a href="login.html"
+       id="loginLink">
+        🔐 ورود
+    </a>
 
 </nav>
 
 
-<div class="container">
+<main class="container">
 
-<div class="title">
-🐉 DrAgOn GaMe
-</div>
+    <section class="card"
+             style="max-width:520px; margin:auto;">
 
-<div class="subtitle">
-ورود به حساب کاربری
-</div>
+        <div class="center">
 
+            <h1 class="text-green">
+                🔐 ورود به اکانت
+            </h1>
 
-<div class="box">
+            <p style="margin-top:10px;">
+                ورود به حساب DrAgOn GaMe
+            </p>
 
-<label>
-نام کاربری
-</label>
-
-<input
-type="text"
-id="loginUsername"
-placeholder="نام کاربری">
+        </div>
 
 
-<label>
-ایمیل
-</label>
+        <form id="loginForm"
+              class="form"
+              style="margin-top:25px;">
 
-<input
-type="email"
-id="loginEmail"
-placeholder="example@gmail.com">
+            <input
+                class="input"
+                id="username"
+                type="text"
+                placeholder="نام کاربری"
+                required
+            >
+
+            <input
+                class="input"
+                id="email"
+                type="email"
+                placeholder="ایمیل"
+                required
+            >
+
+            <input
+                class="input"
+                id="password"
+                type="password"
+                placeholder="رمز عبور"
+                required
+            >
+
+            <button
+                class="btn btn-primary"
+                type="submit">
+                ورود
+            </button>
+
+        </form>
 
 
-<label>
-رمز عبور
-</label>
+        <div id="loginMessage"
+             class="center"
+             style="margin-top:15px;">
+        </div>
 
-<input
-type="password"
-id="loginPassword"
-placeholder="رمز عبور">
+    </section>
 
-
-<button
-class="main-btn"
-onclick="login()">
-
-ورود به حساب
-
-</button>
+</main>
 
 
-<div
-id="message"
-class="message">
-</div>
-
-</div>
+<footer>
+    © 2026 DrAgOn GaMe
+</footer>
 
 
-<div class="footer">
-
-🐉 DrAgOn GaMe © تمامی حقوق محفوظ است
-
-</div>
-
-</div>
+<script src="assets/app.js"></script>
 
 
 <script>
 
-function updateNavigation(){
+document.getElementById("loginForm")
+.addEventListener("submit", function(event) {
 
-    const loggedIn =
-        localStorage.getItem("dragonGameLoggedIn") === "true";
-
-    const accountLink =
-        document.getElementById("accountLink");
-
-    const loginLink =
-        document.getElementById("loginLink");
-
-
-    if(loggedIn){
-
-        if(accountLink){
-            accountLink.style.display = "inline-block";
-        }
-
-        if(loginLink){
-            loginLink.style.display = "none";
-        }
-
-    }else{
-
-        if(accountLink){
-            accountLink.style.display = "none";
-        }
-
-        if(loginLink){
-            loginLink.style.display = "inline-block";
-        }
-
-    }
-
-}
-
-
-function login(){
+    event.preventDefault();
 
     const username =
-        document.getElementById("loginUsername").value.trim();
+        document.getElementById("username").value.trim();
 
     const email =
-        document.getElementById("loginEmail").value.trim();
+        document.getElementById("email").value.trim();
 
     const password =
-        document.getElementById("loginPassword").value;
+        document.getElementById("password").value.trim();
 
     const message =
-        document.getElementById("message");
+        document.getElementById("loginMessage");
 
 
-    if(!username || !email || !password){
+    if (!username || !email || !password) {
 
-        message.innerText =
-            "لطفاً همه فیلدها را کامل کنید.";
-
-        message.style.display = "block";
+        message.innerHTML =
+            '<span style="color:#ff6666;">لطفاً همه فیلدها را پر کنید.</span>';
 
         return;
     }
@@ -369,12 +153,10 @@ function login(){
         "true"
     );
 
-
     localStorage.setItem(
         "dragonGameUsername",
         username
     );
-
 
     localStorage.setItem(
         "dragonGameEmail",
@@ -382,94 +164,20 @@ function login(){
     );
 
 
-    message.innerText =
-        "ورود با موفقیت انجام شد.";
-
-    message.style.display = "block";
+    message.innerHTML =
+        '<span style="color:#00ff66;">ورود موفق بود! در حال انتقال...</span>';
 
 
-    updateNavigation();
+    setTimeout(function() {
 
+        window.location.href =
+            "account.html";
 
-    setTimeout(function(){
+    }, 700);
 
-        window.location.href = "account.html";
-
-    },1000);
-
-}
-
-
-updateNavigation();
+});
 
 </script>
-<script>
-const nav = document.querySelector("nav");
 
-let dragging = false;
-let moved = false;
-
-let startX = 0;
-let startY = 0;
-
-let startLeft = 0;
-let startTop = 0;
-
-nav.addEventListener("pointerdown", function(e){
-
-    dragging = true;
-    moved = false;
-
-    const rect = nav.getBoundingClientRect();
-
-    startX = e.clientX;
-    startY = e.clientY;
-
-    startLeft = rect.left;
-    startTop = rect.top;
-
-    nav.style.left = startLeft + "px";
-    nav.style.top = startTop + "px";
-    nav.style.right = "auto";
-
-    nav.setPointerCapture(e.pointerId);
-});
-
-
-nav.addEventListener("pointermove", function(e){
-
-    if(!dragging) return;
-
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
-
-    if(Math.abs(dx) > 5 || Math.abs(dy) > 5){
-        moved = true;
-    }
-
-    nav.style.left = (startLeft + dx) + "px";
-    nav.style.top = (startTop + dy) + "px";
-});
-
-
-nav.addEventListener("pointerup", function(e){
-
-    dragging = false;
-
-    nav.releasePointerCapture(e.pointerId);
-});
-
-
-nav.addEventListener("click", function(e){
-
-    if(moved){
-        e.preventDefault();
-        e.stopPropagation();
-        moved = false;
-    }
-
-});
-</script>
 </body>
-
-    </html>
+                </html>
