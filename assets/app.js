@@ -1,8 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* =========================
-       LOGIN STATE
-    ========================= */
+document.addEventListener("DOMContentLoaded", () => {
 
     const loggedIn =
         localStorage.getItem("dragonGameLoggedIn") === "true";
@@ -13,46 +9,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const email =
         localStorage.getItem("dragonGameEmail") || "";
 
+    let currentPage =
+        location.pathname.split("/").pop() || "index.html";
+
 
     /* =========================
-       ALL PAGES
+       MENU
     ========================= */
 
-    const pages = [
-        {
-            href: "index.html",
-            icon: "🏠",
-            text: "خانه"
-        },
-        {
-            href: "account.html",
-            icon: "👤",
-            text: "اکانت من",
-            account: true
-        },
-        {
-            href: "players.html",
-            icon: "👥",
-            text: "بازیکنان"
-        },
-        {
-            href: "rankings.html",
-            icon: "🏆",
-            text: "رتبه‌بندی"
-        },
-        {
-            href: "server.html",
-            icon: "🎮",
-            text: "اتصال"
-        },
-        {
-            href: "shop.html",
-            icon: "🛒",
-            text: "فروشگاه"
-        }
+    const mainLinks = [
+        ["index.html", "🏠", "خانه"],
+        ["account.html", "👤", "اکانت من"],
+        ["players.html", "👥", "بازیکنان"],
+        ["rankings.html", "🏆", "رتبه‌بندی"],
+        ["server.html", "🎮", "اتصال"],
+        ["shop.html", "🛒", "فروشگاه"]
     ];
 
-    const morePages = [
+    const moreLinks = [
         ["player.html", "👤", "پروفایل بازیکن"],
         ["news.html", "📰", "اخبار"],
         ["events.html", "🎯", "رویدادها"],
@@ -70,47 +44,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================
-       CURRENT PAGE
+       REMOVE OLD MENUS
     ========================= */
 
-    let currentPage =
-        window.location.pathname.split("/").pop();
-
-    if (!currentPage) {
-        currentPage = "index.html";
-    }
-
-
-    /* =========================
-       CREATE MENU
-    ========================= */
-
-    document.querySelectorAll(".main-nav").forEach(function (nav) {
+    document.querySelectorAll(".main-nav").forEach(nav => {
 
         nav.innerHTML = "";
 
         /* Logo */
         const logo = document.createElement("div");
-        logo.className = "dragon-logo";
-        logo.innerHTML = "🐉 <span>DrAgOn</span>";
+
+        logo.className = "dragon-menu-logo";
+
+        logo.innerHTML = `
+            🐉 <span>DrAgOn</span>
+        `;
+
         nav.appendChild(logo);
 
 
         /* Main links */
-        pages.forEach(function (page) {
+        mainLinks.forEach(item => {
 
-            if (page.account && !loggedIn) {
+            const [href, icon, text] = item;
+
+            if (href === "account.html" && !loggedIn) {
                 return;
             }
 
             const link = document.createElement("a");
 
-            link.href = page.href;
-            link.innerHTML =
-                page.icon + " <span>" + page.text + "</span>";
+            link.href = href;
 
-            if (page.href === currentPage) {
-                link.classList.add("active");
+            link.innerHTML = `
+                ${icon}
+                <span>${text}</span>
+            `;
+
+            if (href === currentPage) {
+                link.classList.add("dragon-active");
             }
 
             nav.appendChild(link);
@@ -123,84 +95,110 @@ document.addEventListener("DOMContentLoaded", function () {
             const login = document.createElement("a");
 
             login.href = "login.html";
-            login.id = "loginLink";
-            login.innerHTML = "🔐 <span>ورود</span>";
+
+            login.innerHTML = `
+                🔐 <span>ورود</span>
+            `;
 
             if (currentPage === "login.html") {
-                login.classList.add("active");
+                login.classList.add("dragon-active");
             }
 
             nav.appendChild(login);
         }
 
 
-        /* More button */
+        /* More */
         const moreButton = document.createElement("button");
 
-        moreButton.className = "dragon-more-button";
         moreButton.type = "button";
-        moreButton.innerHTML = "☰ <span>بیشتر</span>";
+
+        moreButton.className = "dragon-more";
+
+        moreButton.innerHTML = `
+            ☰ <span>بیشتر</span>
+        `;
 
         nav.appendChild(moreButton);
 
 
-        /* More menu */
-        const moreMenu = document.createElement("div");
+        /* More panel */
+        const panel = document.createElement("div");
 
-        moreMenu.className = "dragon-more-menu";
+        panel.className = "dragon-more-panel";
 
-        morePages.forEach(function (item) {
+
+        moreLinks.forEach(item => {
+
+            const [href, icon, text] = item;
 
             const link = document.createElement("a");
 
-            link.href = item[0];
-            link.innerHTML =
-                item[1] + " <span>" + item[2] + "</span>";
+            link.href = href;
 
-            if (item[0] === currentPage) {
-                link.classList.add("active");
+            link.innerHTML = `
+                ${icon}
+                <span>${text}</span>
+            `;
+
+            if (href === currentPage) {
+                link.classList.add("dragon-active");
             }
 
-            moreMenu.appendChild(link);
+            panel.appendChild(link);
         });
 
-        nav.appendChild(moreMenu);
+
+        nav.appendChild(panel);
 
 
-        /* Open / Close */
-        moreButton.addEventListener("click", function (event) {
+        /* Button */
+        moreButton.addEventListener("click", event => {
 
             event.stopPropagation();
 
-            moreMenu.classList.toggle("show");
+            panel.classList.toggle("dragon-show");
+
         });
 
 
-        document.addEventListener("click", function () {
-            moreMenu.classList.remove("show");
+        panel.addEventListener("click", event => {
+            event.stopPropagation();
         });
 
     });
 
 
+    /* Close menu */
+    document.addEventListener("click", () => {
+
+        document
+            .querySelectorAll(".dragon-more-panel")
+            .forEach(panel => {
+
+                panel.classList.remove("dragon-show");
+
+            });
+
+    });
+
+
     /* =========================
-       USERNAME
+       USER DATA
     ========================= */
 
-    document.querySelectorAll("[data-username]")
-        .forEach(function (element) {
+    document
+        .querySelectorAll("[data-username]")
+        .forEach(element => {
 
             element.textContent = username;
 
         });
 
 
-    /* =========================
-       EMAIL
-    ========================= */
-
-    document.querySelectorAll("[data-email]")
-        .forEach(function (element) {
+    document
+        .querySelectorAll("[data-email]")
+        .forEach(element => {
 
             element.textContent =
                 email || "ثبت نشده";
@@ -212,24 +210,17 @@ document.addEventListener("DOMContentLoaded", function () {
        LOGOUT
     ========================= */
 
-    document.querySelectorAll("[data-logout]")
-        .forEach(function (button) {
+    document
+        .querySelectorAll("[data-logout]")
+        .forEach(button => {
 
-            button.addEventListener("click", function () {
+            button.addEventListener("click", () => {
 
-                localStorage.removeItem(
-                    "dragonGameLoggedIn"
-                );
+                localStorage.removeItem("dragonGameLoggedIn");
+                localStorage.removeItem("dragonGameUsername");
+                localStorage.removeItem("dragonGameEmail");
 
-                localStorage.removeItem(
-                    "dragonGameUsername"
-                );
-
-                localStorage.removeItem(
-                    "dragonGameEmail"
-                );
-
-                window.location.href = "login.html";
+                location.href = "login.html";
 
             });
 
@@ -237,66 +228,75 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================
-       MENU STYLE
+       MENU CSS
     ========================= */
 
-    if (!document.getElementById("dragon-menu-style")) {
+    const style = document.createElement("style");
 
-        const style = document.createElement("style");
-
-        style.id = "dragon-menu-style";
-
-        style.textContent = `
+    style.innerHTML = `
 
         .main-nav {
             position: fixed !important;
             top: 10px !important;
             left: 50% !important;
-            right: auto !important;
             transform: translateX(-50%) !important;
 
-            width: max-content;
-            max-width: calc(100vw - 16px);
+            z-index: 999999 !important;
 
             display: flex !important;
-            align-items: center;
-            gap: 5px;
+            align-items: center !important;
 
-            padding: 7px;
+            width: max-content !important;
+            max-width: calc(100vw - 16px) !important;
 
-            z-index: 99999;
+            padding: 7px !important;
+            gap: 4px !important;
 
-            overflow: visible !important;
+            background: rgba(3,10,6,.97) !important;
 
-            background: rgba(3,10,6,.96);
-
-            border: 1px solid rgba(0,255,102,.35);
-
-            border-radius: 18px;
+            border: 1px solid rgba(0,255,102,.35) !important;
+            border-radius: 18px !important;
 
             box-shadow:
-                0 12px 35px rgba(0,0,0,.55),
-                0 0 25px rgba(0,255,102,.08);
+                0 12px 40px rgba(0,0,0,.6),
+                0 0 25px rgba(0,255,102,.1) !important;
 
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            overflow: visible !important;
+        }
+
+
+        .dragon-menu-logo {
+            padding: 8px 10px;
+            color: #00ff66;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+
+        .dragon-menu-logo span {
+            color: white;
         }
 
 
         .main-nav a,
-        .dragon-more-button {
+        .dragon-more {
 
-            color: #fff;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
 
-            text-decoration: none;
+            gap: 5px;
 
-            border: 0;
+            padding: 9px 11px !important;
 
-            background: transparent;
+            border: 0 !important;
+            border-radius: 12px !important;
 
-            padding: 9px 11px;
+            background: transparent !important;
 
-            border-radius: 12px;
+            color: white !important;
+
+            text-decoration: none !important;
 
             font-family: inherit;
 
@@ -306,84 +306,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
             cursor: pointer;
 
-            transition:
-                .2s ease;
-
+            transition: .2s ease;
         }
 
 
         .main-nav a:hover,
-        .dragon-more-button:hover {
+        .dragon-more:hover {
 
-            background: rgba(0,255,102,.12);
+            background: rgba(0,255,102,.13) !important;
 
-            color: #00ff66;
-
+            color: #00ff66 !important;
         }
 
 
-        .main-nav a.active {
+        .main-nav a.dragon-active {
 
-            background: rgba(0,255,102,.16);
+            background: rgba(0,255,102,.16) !important;
 
-            color: #00ff66;
-
-            box-shadow:
-                0 0 12px rgba(0,255,102,.08);
-
+            color: #00ff66 !important;
         }
 
 
-        .dragon-logo {
+        .dragon-more {
 
-            display: flex;
-
-            align-items: center;
-
-            gap: 5px;
-
-            padding: 8px 10px;
-
-            color: #00ff66;
-
-            font-weight: 800;
-
-            white-space: nowrap;
-
+            border: 1px solid rgba(0,255,102,.25) !important;
         }
 
 
-        .dragon-logo span {
+        .dragon-more-panel {
 
-            color: #fff;
+            position: absolute !important;
 
-        }
+            top: calc(100% + 9px) !important;
+            right: 0 !important;
 
+            width: 310px !important;
+            max-width: calc(100vw - 20px) !important;
 
-        .dragon-more-button {
+            max-height: 70vh !important;
 
-            border: 1px solid rgba(0,255,102,.2);
+            overflow-y: auto !important;
 
-        }
-
-
-        .dragon-more-menu {
-
-            position: absolute;
-
-            top: calc(100% + 8px);
-
-            right: 0;
-
-            width: 300px;
-
-            max-width: calc(100vw - 20px);
-
-            max-height: 70vh;
-
-            overflow-y: auto;
-
-            display: none;
+            display: none !important;
 
             grid-template-columns: 1fr 1fr;
 
@@ -391,129 +355,98 @@ document.addEventListener("DOMContentLoaded", function () {
 
             padding: 9px;
 
-            background: rgba(3,10,6,.98);
+            background: rgba(3,10,6,.99) !important;
 
-            border: 1px solid rgba(0,255,102,.35);
+            border: 1px solid rgba(0,255,102,.35) !important;
 
-            border-radius: 16px;
+            border-radius: 17px !important;
 
             box-shadow:
-                0 18px 45px rgba(0,0,0,.65);
+                0 20px 50px rgba(0,0,0,.7) !important;
 
             backdrop-filter: blur(18px);
-
             -webkit-backdrop-filter: blur(18px);
-
         }
 
 
-        .dragon-more-menu.show {
+        .dragon-more-panel.dragon-show {
 
-            display: grid;
-
+            display: grid !important;
         }
 
 
-        .dragon-more-menu a {
+        .dragon-more-panel a {
 
-            display: flex;
+            display: flex !important;
 
             align-items: center;
 
-            gap: 7px;
+            justify-content: flex-start;
 
-            padding: 10px;
+            padding: 11px !important;
 
+            border-radius: 11px !important;
         }
 
 
-        @media (max-width: 800px) {
+        @media(max-width:800px) {
 
             .main-nav {
 
-                width: calc(100vw - 16px);
+                width: calc(100vw - 12px) !important;
 
-                max-width: calc(100vw - 16px);
+                max-width: calc(100vw - 12px) !important;
 
-                justify-content: flex-start;
-
-                top: 8px !important;
+                top: 7px !important;
 
             }
 
 
             .main-nav a,
-            .dragon-more-button {
+            .dragon-more {
 
-                padding: 8px 9px;
+                padding: 8px !important;
 
                 font-size: 13px;
-
             }
 
 
-            .dragon-logo span {
+            .dragon-menu-logo span {
 
                 display: none;
-
-            }
-
-
-            .dragon-more-menu {
-
-                right: 0;
-
-                width: 300px;
-
-                max-width: calc(100vw - 20px);
-
             }
 
         }
 
 
-        @media (max-width: 500px) {
+        @media(max-width:500px) {
 
-            .main-nav {
-
-                gap: 2px;
-
-            }
-
-
-            .main-nav a span {
+            .main-nav a span,
+            .dragon-more span {
 
                 display: none;
-
             }
 
 
-            .dragon-more-button span {
+            .dragon-more-panel {
 
-                display: none;
+                width: 300px !important;
 
-            }
-
-
-            .dragon-more-menu {
+                max-width: calc(100vw - 16px) !important;
 
                 grid-template-columns: 1fr 1fr;
-
             }
 
 
-            .dragon-more-menu a span {
+            .dragon-more-panel a span {
 
-                display: inline;
-
+                display: inline !important;
             }
 
         }
 
-        `;
+    `;
 
-        document.head.appendChild(style);
-
-    }
+    document.head.appendChild(style);
 
 });
