@@ -1,366 +1,226 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>اتصال به سرور | DrAgOn GaMe</title>
+    <meta charset="UTF-8">
 
-<style>
-* {
-    box-sizing: border-box;
-}
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background:
-        radial-gradient(circle at top, #12352a 0%, #0b1118 45%, #070b10 100%);
-    color: white;
-}
+    <title>اتصال به سرور | DrAgOn GaMe</title>
 
-nav{
-    position:fixed;
-    top:20px;
-    right:20px;
-    z-index:9999;
+    <link rel="stylesheet" href="assets/style.css">
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:5px;
-
-    padding:10px;
-
-    background:rgba(24,30,43,.92);
-    border:1px solid rgba(0,255,102,.3);
-    border-radius:16px;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.4);
-
-    backdrop-filter:blur(12px);
-
-    cursor:grab;
-
-    user-select:none;
-    touch-action:none;
-}
-
-nav:active{
-    cursor:grabbing;
-}
-
-nav a{
-    color:#dce2eb;
-    text-decoration:none;
-
-    padding:9px 12px;
-    border-radius:8px;
-
-    font-size:14px;
-
-    transition:.2s;
-}
-
-nav a:hover{
-    color:#00ff66;
-    background:rgba(0,255,102,.08);
-}
-
-nav a {
-    color: #ddd;
-    text-decoration: none;
-    margin: 0 7px;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: #00ff66;
-}
-
-.container {
-    width: 92%;
-    max-width: 700px;
-    margin: 45px auto;
-}
-
-.hero {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.logo {
-    font-size: 38px;
-    font-weight: bold;
-    color: #00ff66;
-    text-shadow: 0 0 20px rgba(0,255,102,.35);
-}
-
-.hero p {
-    color: #aaa;
-}
-
-.card {
-    background: rgba(20, 27, 34, .9);
-    border: 1px solid rgba(0,255,102,.15);
-    border-radius: 18px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 35px rgba(0,0,0,.35);
-}
-
-.status {
-    text-align: center;
-    padding: 15px;
-    border-radius: 12px;
-    background: rgba(0,255,102,.08);
-    color: #00ff66;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.info {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 5px;
-    border-bottom: 1px solid #29323a;
-}
-
-.info:last-child {
-    border-bottom: none;
-}
-
-.label {
-    color: #999;
-}
-
-.value {
-    color: white;
-    font-weight: bold;
-}
-
-.green {
-    color: #00ff66;
-}
-
-.connect {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    background: #00ff66;
-    color: #061009;
-    padding: 15px;
-    border-radius: 12px;
-    font-weight: bold;
-    margin-top: 20px;
-    transition: .2s;
-}
-
-.connect:hover {
-    transform: translateY(-2px);
-    background: #19ff78;
-}
-
-.note {
-    text-align: center;
-    color: #888;
-    font-size: 13px;
-    margin-top: 15px;
-}
-
-footer {
-    text-align: center;
-    color: #666;
-    padding: 25px;
-    font-size: 13px;
-    }
-    @media (max-width: 600px) {
-    nav a {
-        display: inline-block;
-        margin: 6px 4px;
-        font-size: 13px;
-    }
-
-    .container {
-        width: 94%;
-        margin: 25px auto;
-    }
-
-    .logo {
-        font-size: 30px;
-    }
-
-    .card {
-        padding: 18px;
-    }
-
-    .info {
-        font-size: 14px;
-    }
-
-    .connect {
-        width: 100%;
-    }
-        }
-</style>
 </head>
 
 <body>
 
-<nav>
+<nav class="main-nav">
 
-<a href="index.html">خانه</a>
-<a href="account.html" id="accountLink" style="display:none;">اکانت من</a>
-<a href="players.html">بازیکنان آنلاین</a>
-<a href="server.html">اتصال به سرور</a>
-<a href="shop.html">فروشگاه</a>
-<a href="login.html" id="loginLink">ورود</a>
+    <a href="index.html">🏠 خانه</a>
+
+    <a href="account.html"
+       id="accountLink"
+       style="display:none;">
+        👤 اکانت من
+    </a>
+
+    <a href="players.html">
+        👥 بازیکنان آنلاین
+    </a>
+
+    <a href="server.html">
+        🎮 اتصال به سرور
+    </a>
+
+    <a href="shop.html">
+        🛒 فروشگاه
+    </a>
+
+    <a href="login.html"
+       id="loginLink">
+        🔐 ورود
+    </a>
 
 </nav>
 
-<div class="container">
 
-    <div class="hero">
-        <div class="logo">🐉 DrAgOn GaMe</div>
-        <p>اتصال به سرور GTA San Andreas</p>
-    </div>
+<main class="container">
 
-    <div class="card">
+    <section class="hero">
 
-        <div class="status">
-            🟢 سرور آنلاین
+        <h1>🎮 DrAgOn GaMe</h1>
+
+        <p>
+            اتصال به سرور GTA San Andreas Multiplayer
+        </p>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="card">
+
+            <h2 class="text-green">
+                وضعیت سرور
+            </h2>
+
+            <div class="status online"
+                 style="margin-top:15px;">
+
+                <span class="status-dot"></span>
+
+                آنلاین
+
+            </div>
+
         </div>
 
-        <div class="info">
-            <span class="label">نام سرور</span>
-            <span class="value">DrAgOn GaMe</span>
+    </section>
+
+
+    <section class="section">
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <span class="stat-value">
+                    DrAgOn
+                </span>
+
+                <span class="stat-label">
+                    نام سرور
+                </span>
+
+            </div>
+
+            <div class="stat">
+
+                <span class="stat-value">
+                    1
+                </span>
+
+                <span class="stat-label">
+                    بازیکن آنلاین
+                </span>
+
+            </div>
+
+            <div class="stat">
+
+                <span class="stat-value">
+                    SA-MP
+                </span>
+
+                <span class="stat-label">
+                    پلتفرم
+                </span>
+
+            </div>
+
+            <div class="stat">
+
+                <span class="stat-value">
+                    آماده‌سازی
+                </span>
+
+                <span class="stat-label">
+                    IP / Port
+                </span>
+
+            </div>
+
         </div>
 
-        <div class="info">
-            <span class="label">وضعیت</span>
-            <span class="value green">Online</span>
+    </section>
+
+
+    <section class="section">
+
+        <div class="card center">
+
+            <h2>
+                🔗 اطلاعات اتصال
+            </h2>
+
+            <p style="margin-top:15px;">
+                IP:
+                <span class="text-green">
+                    در حال آماده‌سازی
+                </span>
+            </p>
+
+            <p style="margin-top:10px;">
+                Port:
+                <span class="text-green">
+                    در حال آماده‌سازی
+                </span>
+            </p>
+
+            <div style="margin-top:22px;">
+
+                <a href="#"
+                   class="btn btn-primary">
+                    🎮 اتصال به سرور
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="info">
-            <span class="label">بازیکنان آنلاین</span>
-            <span class="value">1</span>
+    </section>
+
+
+    <section class="section">
+
+        <div class="card">
+
+            <h2>
+                📥 دانلود
+            </h2>
+
+            <p style="margin:12px 0 18px;">
+                فایل‌های بازی و لانچر پس از آماده‌شدن سرور
+                در این قسمت قرار خواهند گرفت.
+            </p>
+
+            <a href="#"
+               class="btn">
+                دانلود بازی
+            </a>
+
         </div>
 
-        <div class="info">
-            <span class="label">نسخه</span>
-            <span class="value">SA-MP</span>
+    </section>
+
+
+    <section class="section">
+
+        <div class="card">
+
+            <h3>ℹ️ توجه</h3>
+
+            <p style="margin-top:10px;">
+                اطلاعات IP و Port واقعی پس از راه‌اندازی
+                سرور در این صفحه قرار می‌گیرد.
+            </p>
+
         </div>
 
-        <div class="info">
-            <span class="label">IP سرور</span>
-            <span class="value">در حال آماده‌سازی</span>
-        </div>
+    </section>
 
-        <div class="info">
-            <span class="label">Port</span>
-            <span class="value">در حال آماده‌سازی</span>
-        </div>
+</main>
 
-        <a class="connect" href="GAME-LINK">
-            🎮 دانلود و ورود به بازی
-        </a>
-
-        <div class="note">
-            اطلاعات IP، پورت و تعداد بازیکنان پس از راه‌اندازی سرور واقعی به‌روزرسانی می‌شوند.
-        </div>
-
-    </div>
-
-</div>
 
 <footer>
-    © 2026 DrAgOn GaMe — GTA San Andreas Multiplayer
+    © 2026 DrAgOn GaMe
 </footer>
-<script>
-function updateNavigation() {
-    const loggedIn = localStorage.getItem("dragonGameLoggedIn") === "true";
-
-    const accountLink = document.getElementById("accountLink");
-    const loginLink = document.getElementById("loginLink");
-
-    if (loggedIn) {
-        if (accountLink) accountLink.style.display = "inline-block";
-        if (loginLink) loginLink.style.display = "none";
-    } else {
-        if (accountLink) accountLink.style.display = "none";
-        if (loginLink) loginLink.style.display = "inline-block";
-    }
-}
-
-updateNavigation();
-        </script>
-<script>
-const nav = document.querySelector("nav");
-
-let dragging = false;
-let moved = false;
-
-let startX = 0;
-let startY = 0;
-
-let startLeft = 0;
-let startTop = 0;
-
-nav.addEventListener("pointerdown", function(e){
-
-    dragging = true;
-    moved = false;
-
-    const rect = nav.getBoundingClientRect();
-
-    startX = e.clientX;
-    startY = e.clientY;
-
-    startLeft = rect.left;
-    startTop = rect.top;
-
-    nav.style.left = startLeft + "px";
-    nav.style.top = startTop + "px";
-    nav.style.right = "auto";
-
-    nav.setPointerCapture(e.pointerId);
-});
 
 
-nav.addEventListener("pointermove", function(e){
+<script src="assets/app.js"></script>
 
-    if(!dragging) return;
-
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
-
-    if(Math.abs(dx) > 5 || Math.abs(dy) > 5){
-        moved = true;
-    }
-
-    nav.style.left = (startLeft + dx) + "px";
-    nav.style.top = (startTop + dy) + "px";
-});
-
-
-nav.addEventListener("pointerup", function(e){
-
-    dragging = false;
-
-    nav.releasePointerCapture(e.pointerId);
-});
-
-
-nav.addEventListener("click", function(e){
-
-    if(moved){
-        e.preventDefault();
-        e.stopPropagation();
-        moved = false;
-    }
-
-});
-</script>
 </body>
 </html>
