@@ -1,597 +1,229 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>بازیکنان آنلاین - DrAgOn GaMe</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>بازیکنان آنلاین | DrAgOn GaMe</title>
 
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    background:
-        radial-gradient(circle at top,#18283b 0%,#111722 42%,#0b0f16 100%);
-    color:white;
-    font-family:Arial,sans-serif;
-    min-height:100vh;
-}
-
-/* NAV */
-
-nav{
-    position:fixed;
-    top:20px;
-    right:20px;
-    z-index:9999;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:5px;
-
-    padding:10px;
-
-    background:rgba(24,30,43,.92);
-    border:1px solid rgba(0,255,102,.3);
-    border-radius:16px;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.4);
-
-    backdrop-filter:blur(12px);
-
-    cursor:grab;
-
-    user-select:none;
-    touch-action:none;
-}
-
-nav:active{
-    cursor:grabbing;
-}
-
-nav a{
-    color:#dce2eb;
-    text-decoration:none;
-
-    padding:9px 12px;
-    border-radius:8px;
-
-    font-size:14px;
-
-    transition:.2s;
-}
-
-nav a:hover{
-    color:#00ff66;
-    background:rgba(0,255,102,.08);
-}
-
-nav a{
-    color:#dce2eb;
-    text-decoration:none;
-    margin:5px 7px;
-    font-size:14px;
-    display:inline-block;
-    transition:.25s;
-}
-
-nav a:hover{
-    color:#00ff66;
-    transform:translateY(-1px);
-}
-
-/* MAIN */
-
-.container{
-    width:92%;
-    max-width:760px;
-    margin:30px auto 60px;
-}
-
-/* TITLE */
-
-.title-box{
-    text-align:center;
-    margin-bottom:28px;
-}
-
-.title{
-    font-size:30px;
-    font-weight:bold;
-    color:#fff;
-    text-shadow:0 0 18px rgba(0,255,102,.15);
-}
-
-.subtitle{
-    color:#7f8a9d;
-    font-size:13px;
-    margin-top:9px;
-}
-
-/* SERVER STATUS */
-
-.server-status{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    background:linear-gradient(
-        135deg,
-        rgba(26,33,48,.98),
-        rgba(18,24,35,.98)
-    );
-
-    border:1px solid #293344;
-    border-radius:16px;
-
-    padding:17px 19px;
-    margin-bottom:20px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-.status-right{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.status-dot{
-    width:11px;
-    height:11px;
-    background:#00ff66;
-    border-radius:50%;
-    box-shadow:
-        0 0 8px #00ff66,
-        0 0 16px rgba(0,255,102,.45);
-}
-
-.status-text{
-    color:#00ff66;
-    font-weight:bold;
-}
-
-.player-count{
-    color:#aeb7c6;
-    font-size:13px;
-}
-
-/* CATEGORY */
-
-.category{
-    background:linear-gradient(
-        145deg,
-        rgba(26,33,48,.98),
-        rgba(19,25,36,.98)
-    );
-
-    border:1px solid #293344;
-    border-radius:18px;
-
-    padding:18px;
-
-    margin-bottom:18px;
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.25);
-
-    transition:.25s;
-}
-
-.category:hover{
-    border-color:#354258;
-}
-
-/* CATEGORY TITLE */
-
-.category-title{
-    display:flex;
-    align-items:center;
-
-    font-size:20px;
-    font-weight:bold;
-
-    padding-bottom:15px;
-    margin-bottom:8px;
-
-    border-bottom:1px solid #30394a;
-}
-
-/* FACTION */
-
-.faction{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    background:#202838;
-
-    padding:15px 16px;
-
-    margin-top:9px;
-
-    border-radius:11px;
-
-    border:1px solid transparent;
-
-    transition:.25s;
-}
-
-.faction:hover{
-    background:#263144;
-    border-color:#00ff66;
-    transform:translateX(-3px);
-    box-shadow:0 5px 18px rgba(0,255,102,.08);
-}
-
-.faction-name{
-    color:#e7ebf1;
-    font-size:14px;
-}
-
-.online{
-    color:#00ff66;
-    font-weight:bold;
-    font-size:13px;
-
-    background:rgba(0,255,102,.08);
-    padding:5px 9px;
-    border-radius:7px;
-}
-
-.offline{
-    color:#727c8d;
-    font-size:13px;
-
-    background:rgba(255,255,255,.03);
-    padding:5px 9px;
-    border-radius:7px;
-}
-
-/* FOOTER */
-
-.footer{
-    text-align:center;
-    color:#555f70;
-    font-size:12px;
-    margin-top:35px;
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-    .container{
-        width:94%;
-        margin-top:24px;
-    }
-
-    nav{
-        padding:14px 5px;
-    }
-
-    nav a{
-        font-size:13px;
-        margin:4px 5px;
-    }
-
-    .title{
-        font-size:26px;
-    }
-
-    .server-status{
-        padding:15px;
-    }
-
-    .category{
-        padding:14px;
-        border-radius:15px;
-    }
-
-    .category-title{
-        font-size:18px;
-    }
-
-    .faction{
-        padding:14px 12px;
-    }
-
-    .faction-name{
-        font-size:13px;
-    }
-
-}
-
-</style>
+    <link rel="stylesheet" href="assets/style.css">
 
 </head>
 
 <body>
 
+<nav class="main-nav">
 
-<!-- NAV -->
+    <a href="index.html">🏠 خانه</a>
 
-<nav>
+    <a href="account.html"
+       id="accountLink"
+       style="display:none;">
+        👤 اکانت من
+    </a>
 
-<a href="index.html">خانه</a>
-<a href="account.html" id="accountLink" style="display:none;">اکانت من</a>
-<a href="players.html">بازیکنان آنلاین</a>
-<a href="server.html">اتصال به سرور</a>
-<a href="shop.html">فروشگاه</a>
-<a href="login.html" id="loginLink">ورود</a>
+    <a href="players.html">
+        👥 بازیکنان آنلاین
+    </a>
+
+    <a href="server.html">
+        🎮 اتصال به سرور
+    </a>
+
+    <a href="shop.html">
+        🛒 فروشگاه
+    </a>
+
+    <a href="login.html"
+       id="loginLink">
+        🔐 ورود
+    </a>
 
 </nav>
 
 
-<div class="container">
+<main class="container">
 
+    <section class="hero">
 
-<!-- TITLE -->
+        <h1>👥 بازیکنان آنلاین</h1>
 
-<title>👥 بازیکنان آنلاین | DrAgOn GaMe</title>
-</div>
+        <p>
+            بازیکنان حاضر در DrAgOn GaMe
+        </p>
 
-<div class="subtitle">
-وضعیت بازیکنان و فکشن‌های DrAgOn GaMe
-</div>
+    </section>
 
-</div>
 
+    <section class="section">
 
-<!-- SERVER STATUS -->
+        <div class="stats">
 
-<div class="server-status">
+            <div class="stat">
 
-<div class="status-right">
+                <span class="stat-value">
+                    1
+                </span>
 
-<div class="status-dot"></div>
+                <span class="stat-label">
+                    بازیکن آنلاین
+                </span>
 
-<div class="status-text">
-سرور آنلاین
-</div>
+            </div>
 
-</div>
+            <div class="stat">
 
-<div class="player-count">
-👥 ۱ بازیکن آنلاین
-</div>
+                <span class="stat-value">
+                    ONLINE
+                </span>
 
-</div>
+                <span class="stat-label">
+                    وضعیت سرور
+                </span>
 
+            </div>
 
-<!-- CITIZENS -->
+        </div>
 
-<div class="category">
+    </section>
 
-<div class="category-title">
-👤 شهروندان
-</div>
 
-<div class="faction">
+    <section class="section">
 
-<span class="faction-name">
-شهروندان
-</span>
+        <h2 class="section-title">
+            🏙️ شهروندان
+        </h2>
 
-<span class="online">
-۱ آنلاین
-</span>
+        <div class="player-list">
 
-</div>
+            <div class="player-card">
 
-</div>
+                <div class="avatar">
+                    D
+                </div>
 
+                <div class="player-info">
 
-<!-- MILD FACTIONS -->
+                    <div class="player-name">
+                        DrAgOn
+                    </div>
 
-<div class="category">
+                    <div class="player-meta">
+                        Level 1000 · سازنده · آنلاین
+                    </div>
 
-<div class="category-title">
-🟢 اقلیت‌های ملایم
-</div>
+                </div>
 
-<div class="faction">
-<span class="faction-name">امدادگران (Medic)</span>
-<span class="offline">۰</span>
-</div>
+            </div>
 
-<div class="faction">
-<span class="faction-name">خبرنگاران (NR)</span>
-<span class="offline">۰</span>
-</div>
+        </div>
 
-<div class="faction">
-<span class="faction-name">تاکسی‌رانی (Taxi)</span>
-<span class="offline">۰</span>
-</div>
+    </section>
 
-<div class="faction">
-<span class="faction-name">معلمان مدرسه لوس سانتوس (LSSI)</span>
-<span class="offline">۰</span>
-</div>
 
-<div class="faction">
-<span class="faction-name">معلمان مدرسه لاس ونتوراس (LVSI)</span>
-<span class="offline">۰</span>
-</div>
+    <section class="section">
 
-<div class="faction">
-<span class="faction-name">معلمان مدرسه سن فیرو (SFSI)</span>
-<span class="offline">۰</span>
-</div>
+        <h2 class="section-title">
+            🟢 اقلیت‌های ملایم
+        </h2>
 
-<div class="faction">
-<span class="faction-name">شرکت یدک‌کش (TTC)</span>
-<span class="offline">۰</span>
-</div>
+        <div class="grid">
 
-</div>
+            <div class="card">
+                <h3>🚑 امدادگران</h3>
+                <p>فکشن امدادگران</p>
+            </div>
 
+            <div class="card">
+                <h3>📰 خبرنگاران</h3>
+                <p>NR</p>
+            </div>
 
-<!-- MEDIUM FACTIONS -->
+            <div class="card">
+                <h3>🚕 تاکسی‌رانی</h3>
+                <p>Taxi</p>
+            </div>
 
-<div class="category">
+            <div class="card">
+                <h3>👨‍🏫 معلمان</h3>
+                <p>LSSI · LVSI · SFSI</p>
+            </div>
 
-<div class="category-title">
-🔵 اقلیت‌های متوسط
-</div>
+            <div class="card">
+                <h3>🚚 شرکت یدک‌کش</h3>
+                <p>TTC</p>
+            </div>
 
-<div class="faction">
-<span class="faction-name">مافیای روسی (TRM)</span>
-<span class="offline">۰</span>
-</div>
+        </div>
 
-<div class="faction">
-<span class="faction-name">مافیای تریادز (TMF)</span>
-<span class="offline">۰</span>
-</div>
+    </section>
 
-<div class="faction">
-<span class="faction-name">خانواده گروو استریت (GSF)</span>
-<span class="offline">۰</span>
-</div>
 
-<div class="faction">
-<span class="faction-name">خانواده لوس سانتوس واکوس (LSV)</span>
-<span class="offline">۰</span>
-</div>
+    <section class="section">
 
-<div class="faction">
-<span class="faction-name">خانواده بالاس (BLL)</span>
-<span class="offline">۰</span>
-</div>
+        <h2 class="section-title">
+            🔴 اقلیت‌های متوسط
+        </h2>
 
-<div class="faction">
-<span class="faction-name">خانواده وایروس لوس آرتکاس (VLA)</span>
-<span class="offline">۰</span>
-</div>
+        <div class="grid">
 
-</div>
+            <div class="card">مافیای روسی · TRM</div>
 
+            <div class="card">مافیای تریادز · TMF</div>
 
-<!-- POLICE -->
+            <div class="card">خانواده گروو استریت · GSF</div>
 
-<div class="category">
+            <div class="card">خانواده لوس سانتوس واکوس · LSV</div>
 
-<div class="category-title">
-🚔 اقلیت‌های انتظامی
-</div>
+            <div class="card">خانواده بالاس · BLL</div>
 
-<div class="faction">
-<span class="faction-name">اداره پلیس لوس سانتوس (LSPD)</span>
-<span class="offline">۰</span>
-</div>
+            <div class="card">خانواده وایروس لوس آرتکاس · VLA</div>
 
-<div class="faction">
-<span class="faction-name">اداره پلیس لاس ونتوراس (LVPD)</span>
-<span class="offline">۰</span>
-</div>
+        </div>
 
-<div class="faction">
-<span class="faction-name">اداره پلیس سن فیرو (SFPD)</span>
-<span class="offline">۰</span>
-</div>
+    </section>
 
-</div>
 
+    <section class="section">
 
-<div class="footer">
-🐉 DrAgOn GaMe © تمامی حقوق محفوظ است
-</div>
+        <h2 class="section-title">
+            🚔 پلیس
+        </h2>
 
+        <div class="grid">
 
-</div>
-<script>
-function updateNavigation() {
-    const loggedIn = localStorage.getItem("dragonGameLoggedIn") === "true";
+            <div class="card">
+                <h3>LSPD</h3>
+                <p>Los Santos Police Department</p>
+            </div>
 
-    const accountLink = document.getElementById("accountLink");
-    const loginLink = document.getElementById("loginLink");
+            <div class="card">
+                <h3>LVPD</h3>
+                <p>Las Venturas Police Department</p>
+            </div>
 
-    if (loggedIn) {
-        if (accountLink) accountLink.style.display = "inline-block";
-        if (loginLink) loginLink.style.display = "none";
-    } else {
-        if (accountLink) accountLink.style.display = "none";
-        if (loginLink) loginLink.style.display = "inline-block";
-    }
-}
+            <div class="card">
+                <h3>SFPD</h3>
+                <p>San Fierro Police Department</p>
+            </div>
 
-updateNavigation();
-    </script>
-<script>
-const nav = document.querySelector("nav");
+        </div>
 
-let dragging = false;
-let moved = false;
+    </section>
 
-let startX = 0;
-let startY = 0;
+</main>
 
-let startLeft = 0;
-let startTop = 0;
 
-nav.addEventListener("pointerdown", function(e){
+<footer>
+    © 2026 DrAgOn GaMe
+</footer>
 
-    dragging = true;
-    moved = false;
 
-    const rect = nav.getBoundingClientRect();
+<script src="assets/app.js"></script>
 
-    startX = e.clientX;
-    startY = e.clientY;
-
-    startLeft = rect.left;
-    startTop = rect.top;
-
-    nav.style.left = startLeft + "px";
-    nav.style.top = startTop + "px";
-    nav.style.right = "auto";
-
-    nav.setPointerCapture(e.pointerId);
-});
-
-
-nav.addEventListener("pointermove", function(e){
-
-    if(!dragging) return;
-
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
-
-    if(Math.abs(dx) > 5 || Math.abs(dy) > 5){
-        moved = true;
-    }
-
-    nav.style.left = (startLeft + dx) + "px";
-    nav.style.top = (startTop + dy) + "px";
-});
-
-
-nav.addEventListener("pointerup", function(e){
-
-    dragging = false;
-
-    nav.releasePointerCapture(e.pointerId);
-});
-
-
-nav.addEventListener("click", function(e){
-
-    if(moved){
-        e.preventDefault();
-        e.stopPropagation();
-        moved = false;
-    }
-
-});
-</script>
 </body>
-  </html>
+    </html>
